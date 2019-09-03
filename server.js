@@ -28,7 +28,21 @@ app.post('/', (req, res) => {
     }).then(widget => {
         res.redirect('/')
     })
-   
+})
+
+app.delete('/', (req, res) => {
+    db.widget.destroy({
+        where: {
+            description: req.body.description,
+            quantity: req.body.quantity
+        }
+    })
+    .then(() => {
+        res.redirect('/')
+    })
+    .catch(err => {
+        console.log(err);
+    })
 })
 
 
