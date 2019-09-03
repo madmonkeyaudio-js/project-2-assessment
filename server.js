@@ -20,8 +20,15 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-    db.widget.findOrCreate()
-    res.send('You posted to not widgets!')
+    db.widget.findOrCreate({
+        where: {
+            description: req.body.description,
+            quantity: req.body.quantity
+        }
+    }).then(widget => {
+        res.redirect('/')
+    })
+   
 })
 
 
