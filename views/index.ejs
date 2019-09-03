@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
     <h1>Wacky Widgets</h1>
     <% if (widgets.length === 0) { %>
-        <h2>No widgets here!</h2>
+        <h3>No widgets here!</h3>
     <% } else { %>
         <% widgets.forEach(w => { %>
-        <div>
-           
-            <p><%=w.description %></p>
-            <label for="quantity">Quantity:</label>
-            <p id="quantity"><%= w.quantity %></p>
-        </div>
+        <section>
+            <div>
+                <p><%=w.description %></p>
+                <label for="quantity">Quantity:</label>
+                <p id="quantity"><%= w.quantity %></p>
+            </div>
+        </section>
         <form action="/?_method=DELETE" method="POST">
             <input type="hidden" value="<%= w.description %>" name="description">
             <input type="hidden" value="<%= w.quantity %>" name="quantity">
@@ -29,8 +28,8 @@
 
    <h4>Add Widget</h4>
     <form action="/" method="POST">
-        <input type="text" name="description">
-        <input type="text" name="quantity">
+        <input type="text" name="description" placeholder="Description...">
+        <input type="text" name="quantity" placeholder="Quantity...">
         <input type="submit" value="ADD WIDGET">
     </form>
 
