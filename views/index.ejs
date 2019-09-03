@@ -12,8 +12,11 @@
         <h2>No widgets here!</h2>
     <% } else { %>
         <% widgets.forEach(w => { %>
-            <p><% w.description %></p>
-            <p><% w.quantity %></p>
+        <div>
+            <p><%=w.description %></p>
+            <p><%= w.quantity %></p>
+        </div>
+        <form action="/" method="POST"></form>
        <% }) %>
     <% } %>
     <hr>
