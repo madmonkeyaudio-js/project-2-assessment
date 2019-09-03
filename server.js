@@ -25,7 +25,7 @@ app.post('/', (req, res) => {
             description: req.body.description,
             quantity: req.body.quantity
         }
-    }).then(widget => {
+    }).then(() => {
         res.redirect('/')
     })
 })

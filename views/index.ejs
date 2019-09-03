@@ -13,10 +13,16 @@
     <% } else { %>
         <% widgets.forEach(w => { %>
         <div>
+           
             <p><%=w.description %></p>
-            <p><%= w.quantity %></p>
+            <label for="quantity">Quantity:</label>
+            <p id="quantity"><%= w.quantity %></p>
         </div>
-        <form action="/" method="POST"></form>
+        <form action="/?_method=DELETE" method="POST">
+            <input type="hidden" value="<%= w.description %>" name="description">
+            <input type="hidden" value="<%= w.quantity %>" name="quantity">
+            <input type="submit" value="DELETE">
+        </form>
        <% }) %>
     <% } %>
     <hr>
